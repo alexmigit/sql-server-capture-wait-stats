@@ -1,5 +1,5 @@
 # SQL Server - Wait Statisics - Capture Baseline Data
-sql-server-capture-wait-stats
+Capture and analyze SQL Server historical wait statistics.
 
 
 ## Query Top Wait Statistics
