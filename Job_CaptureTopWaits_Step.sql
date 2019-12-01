@@ -5,7 +5,7 @@ GO
 INSERT dbo.WaitStats([WaitType])
 VALUES (''Wait Statistics for '' + CAST(GETDATE() AS NVARCHAR(19)));
 INSERT dbo.WaitStats ([CaptureDate], [WaitType], [Wait_S], [Resource_S], [Signal_S], [WaitCount], [Percentage], [AvgWait_S], [AvgRes_S], [AvgSig_S])
-EXEC ( ''
+EXEC ( '
 WITH [Waits] AS
         (SELECT
             [wait_type],
@@ -122,6 +122,6 @@ GROUP BY [W1].[RowNum], [W1].[wait_type], [W1].[WaitS],
 [W1].[Percentage]
 HAVING SUM ([W2].[Percentage]) - MAX ( [W1].[Percentage] ) < 95
 ORDER BY [W1].[Percentage] DESC;
-    '' );
+    ' );
 GO
 
